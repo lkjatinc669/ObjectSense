@@ -18,7 +18,6 @@ import android.os.HandlerThread
 import android.view.Surface
 import android.view.TextureView
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.lkjgc.objectsense.R
 import com.lkjgc.objectsense.ml.SsdMobilenetV11Metadata1
@@ -97,17 +96,37 @@ class Detector : AppCompatActivity() {
                 paint.strokeWidth = h/85f
                 var x = 0
 
+                var mains = arrayListOf<String>()
+
                 scores.forEachIndexed { index, fl ->
                     x = index
                     x *= 4
                     if(fl > 0.5){
                         paint.color = colors[index]
                         paint.style = Paint.Style.STROKE
-                        canvas.drawRect(RectF(locations[x+1] *w, locations[x] *h, locations[x+3] *w, locations[x+2] *h), paint)
+                        canvas.drawRect(
+                            RectF(
+                                locations[x+1] *w,
+                                locations[x] *h,
+                                locations[x+3] *w,
+                                locations[x+2] *h
+                            ), paint
+                        )
                         paint.style = Paint.Style.FILL
-                        canvas.drawText(labels[classes[index].toInt()] +" "+fl.toString(), locations[x+1] *w, locations[x] *h, paint)
+                        val label = labels[classes[index].toInt()] +" "+fl.toString()
+                        canvas.drawText(
+                            label,
+                            locations[x+1] *w,
+                            locations[x] *h,
+                            paint
+                        )
+                        if (label in mains){
+
+                        } else {
+                            mains.add(label)
+                        }
                     }
-                    setDetectedObjects(numberOfDetections)
+                    setDetectedObjects(mains)
                 }
                 imageView.setImageBitmap(mutable)
             }
@@ -147,7 +166,7 @@ class Detector : AppCompatActivity() {
         }, handler)
     }
 
-    fun setDetectedObjects(objectsName: FloatArray){
+    fun setDetectedObjects(objectsName: ArrayList<String>){
         detectedObjects.text = objectsName.toString()
     }
 

@@ -6,16 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextureView
-        android:id="@+id/textureView"
-        android:layout_width="300dp"
-        android:layout_height="400dp" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:background="#000"
-        android:id="@+id/imageView"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logofull"/>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/aclonica"
+            android:textAlignment="center"
+            android:textSize="40sp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="An Open Source Initiative Project"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/aclonica"
+            android:textAlignment="center"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Designed and Developed by"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/aclonica"
+            android:textSize="10sp"
+            android:textAlignment="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jatin Gohil"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/aclonica"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*@lkjatinc669"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/aclonica"
+            android:textSize="13sp"
+            android:textAlignment="center"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>

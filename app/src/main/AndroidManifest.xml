@@ -22,6 +22,9 @@
         android:theme="@style/Theme.ObjectSense"
         tools:targetApi="31">
         <activity
+            android:name=".DashBoard"
+            android:exported="false" />
+        <activity
             android:name=".detection.Detector"
             android:exported="false" />
         <activity
